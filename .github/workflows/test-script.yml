@@ -1,0 +1,23 @@
+name: CI - Lint & Test Bash Script
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install ShellCheck (Bash Linter)
+        run: sudo apt-get install -y shellcheck
+
+      - name: Lint Bash Script
+        run: shellcheck Update.sh
+
+      - name: Run Script in Dry Mode (Syntax Check)
+        run: bash -n Update.sh

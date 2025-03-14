@@ -1,4 +1,3 @@
 # scripts
 
-Update - testing new action
-test 2
+Script for devops pipeline to auto update linux based vms.
